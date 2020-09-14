@@ -14,6 +14,12 @@ Current ideas:<br>
 • Show amount of burials for a given cemetery per year as a line plot.<br>
 • Attempt to pinpoint specific grave locations within a cemetary and show them on a map. <br>
 
+## Progress Log
+### Sept 14, 2020
+After many unsuccessful attempts to understand why my API call is not working like it is in the video tutorial I watched, I take a step back and find that there is a SODAKit library for Swift which should allow me to call Socrata Open data APIs easily (like I have previously tested with Python, since Socrata provides python examples. Now I need to figure out how to import an external library into my project. Looks like least terminal-based way to do it is a feature of xcode 11 so I need to update xcode (I'm using 10.2).
+<br>
+3 hours later, I need to update macOS to 10.15. <br>
+1 hour later, things are finally installed.
 
 
 ## References
@@ -21,12 +27,19 @@ Current ideas:<br>
 #### Basic button and label use refresher
 https://www.youtube.com/watch?v=BM2o8LG5QkE
 
-#### Using API's
+#### Swift guard keyword
+https://stackoverflow.com/questions/30791488/swifts-guard-keyword
+
+
+#### Using API's with Swift
 https://www.youtube.com/watch?v=sqo844saoC4
 
 #### Codable protocol for JSON data
 https://www.credera.com/insights/using-codable-for-json-in-swift-4/
 
+#### Adding an external library (soda-swift)
+https://socrata.github.io/soda-swift/
+https://www.youtube.com/watch?v=ZxHndSGmWcE
 
 
 
