@@ -38,7 +38,7 @@ https://www.youtube.com/watch?v=sqo844saoC4
 https://www.credera.com/insights/using-codable-for-json-in-swift-4/
 
 #### Adding an external library (soda-swift)
-https://socrata.github.io/soda-swift/
+https://socrata.github.io/soda-swift/ <br>
 https://www.youtube.com/watch?v=ZxHndSGmWcE
 
 
