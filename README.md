@@ -21,6 +21,12 @@ Current ideas:<br>
 #### Basic button and label use refresher
 https://www.youtube.com/watch?v=BM2o8LG5QkE
 
+#### Using API's
+https://www.youtube.com/watch?v=sqo844saoC4
+
+#### Codable protocol for JSON data
+https://www.credera.com/insights/using-codable-for-json-in-swift-4/
+
 
 
 
