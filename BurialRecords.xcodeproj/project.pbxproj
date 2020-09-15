@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		82662D3D25102F0A00B85B7C /* SODAKit in Frameworks */ = {isa = PBXBuildFile; productRef = 82662D3C25102F0A00B85B7C /* SODAKit */; };
 		82953EA5250F0ACB007A3031 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82953EA4250F0ACB007A3031 /* AppDelegate.swift */; };
 		82953EA7250F0ACB007A3031 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82953EA6250F0ACB007A3031 /* ViewController.swift */; };
 		82953EAA250F0ACB007A3031 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82953EA8250F0ACB007A3031 /* Main.storyboard */; };
@@ -43,6 +44,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				82662D3D25102F0A00B85B7C /* SODAKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,6 +114,9 @@
 			dependencies = (
 			);
 			name = BurialRecords;
+			packageProductDependencies = (
+				82662D3C25102F0A00B85B7C /* SODAKit */,
+			);
 			productName = BurialRecords;
 			productReference = 82953EA1250F0ACB007A3031 /* BurialRecords.app */;
 			productType = "com.apple.product-type.application";
@@ -162,6 +167,9 @@
 				Base,
 			);
 			mainGroup = 82953E98250F0ACA007A3031;
+			packageReferences = (
+				82662D3B25102F0A00B85B7C /* XCRemoteSwiftPackageReference "soda-swift" */,
+			);
 			productRefGroup = 82953EA2250F0ACB007A3031 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -465,6 +473,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		82662D3B25102F0A00B85B7C /* XCRemoteSwiftPackageReference "soda-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/socrata/soda-swift";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		82662D3C25102F0A00B85B7C /* SODAKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 82662D3B25102F0A00B85B7C /* XCRemoteSwiftPackageReference "soda-swift" */;
+			productName = SODAKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 82953E99250F0ACA007A3031 /* Project object */;
 }
