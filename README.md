@@ -15,31 +15,16 @@ Current ideas:<br>
 • Attempt to pinpoint specific grave locations within a cemetary and show them on a map. <br>
 
 ## Progress Log
+### Sept 13, 2020
+Got caught up with the [basics of adding UI elements](https://www.youtube.com/watch?v=BM2o8LG5QkE) so that I can eventually get some feedback other than the standard output screen. <br>
+
 ### Sept 14, 2020
-After many unsuccessful attempts to understand why my API call is not working like it is in the video tutorial I watched, I take a step back and find that there is a SODAKit library for Swift which should allow me to call Socrata Open data APIs easily (like I have previously tested with Python, since Socrata provides python examples. Now I need to figure out how to import an external library into my project. Looks like least terminal-based way to do it is a feature of xcode 11 so I need to update xcode (I'm using 10.2).
+Lots of brushing up on Swift syntax, had to look up what "[guard](https://stackoverflow.com/questions/30791488/swifts-guard-keyword)" is.
+Foud a first [API calling tutorial](https://www.youtube.com/watch?v=sqo844saoC4). Needed to lookup what the [Codable protocol](https://www.credera.com/insights/using-codable-for-json-in-swift-4/) is. Also just [protocols](https://docs.swift.org/swift-book/LanguageGuide/Protocols.html) in general. They're basically like interfaces in Java. <br>
+After many unsuccessful attempts to understand why my API call is not working like it is in the video tutorial I watched, I take a step back and find that there is a [SODAKit library for Swift](https://socrata.github.io/soda-swift/) which should allow me to call Socrata Open data APIs easily (like I have previously tested with Python, since Socrata provides python examples. Now I need to figure out [how to import an external library into my xcode project](https://www.youtube.com/watch?v=ZxHndSGmWcE). Looks like least terminal-based way to do it is a feature of xcode 11 so I need to update xcode (I'm using 10.2).
 <br>
 3 hours later, I need to update macOS to 10.15. <br>
-1 hour later, things are finally installed.
-
-
-## References
-### iOS / Swift tutorials
-#### Basic button and label use refresher
-https://www.youtube.com/watch?v=BM2o8LG5QkE
-
-#### Swift guard keyword
-https://stackoverflow.com/questions/30791488/swifts-guard-keyword
-
-
-#### Using API's with Swift
-https://www.youtube.com/watch?v=sqo844saoC4
-
-#### Codable protocol for JSON data
-https://www.credera.com/insights/using-codable-for-json-in-swift-4/
-
-#### Adding an external library (soda-swift)
-https://socrata.github.io/soda-swift/ <br>
-https://www.youtube.com/watch?v=ZxHndSGmWcE
-
-
-
+1 hour later, things are finally installed. <br>
+Still having problems with the API call, SODAKit is still not fully intuitive, missing some basics - [looked up completion handlers](https://programmingwithswift.com/understanding-completion-handlers-in-swift/). <br>
+Additionally, needed to look up [enums in Swift](https://docs.swift.org/swift-book/LanguageGuide/Enumerations.html). The ".name" notation is confusing me - I'm very used to C++. <br>
+The documentation on for the swift soda sdk is also slightly outdated. Couldn't just copy paste the example code. Had to rename a method and get rid of the capitalization on the enums. <br>
