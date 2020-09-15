@@ -28,5 +28,5 @@ After many unsuccessful attempts to understand why my API call is not working li
 Still having problems with the API call, SODAKit is still not fully intuitive, missing some basics - [looked up completion handlers](https://programmingwithswift.com/understanding-completion-handlers-in-swift/). <br>
 Additionally, needed to look up [enums in Swift](https://docs.swift.org/swift-book/LanguageGuide/Enumerations.html). The ".name" notation is confusing me - I'm very used to C++. <br>
 The documentation on for the swift soda sdk is also slightly outdated. Couldn't just copy paste the example code. Had to rename a method and get rid of the capitalization on the enums. <br>
-`8:03 PM` - first successful call. Gonna push code now, but first better [read my API token from a txt file](https://www.youtube.com/watch?v=e2N0kV5YQ18) that I don't upload here.
+`8:03 PM` - first successful call. Gonna push code now, but first better [read my API token from a txt file](https://www.youtube.com/watch?v=e2N0kV5YQ18) that I don't upload here. <br>
 `8:44 PM` - managed to get the text to read properly, that tutorial needed modification. Tried to use git in the Terminal but xcode command line tools needed an update because I installed Catalina. Jesus Christ Apple! I'm not buying a mac next time. <br>
