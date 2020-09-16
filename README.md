@@ -30,3 +30,14 @@ Additionally, needed to look up [enums in Swift](https://docs.swift.org/swift-bo
 The documentation on for the swift soda sdk is also slightly outdated. Couldn't just copy paste the example code. Had to rename a method and get rid of the capitalization on the enums. <br>
 `8:03 PM` - first successful call. Gonna push code now, but first better [read my API token from a txt file](https://www.youtube.com/watch?v=e2N0kV5YQ18) that I don't upload here. <br>
 `8:44 PM` - managed to get the text to read properly, that tutorial needed modification. Tried to use git in the Terminal but xcode command line tools needed an update because I installed Catalina. Jesus Christ Apple! I'm not buying a mac next time. <br>
+
+### Sept 15, 2020
+`10:46 AM` Need to learn to use a tableview to see the results of the query better. <br>
+Had to look up the [meaning of the underscore character](https://stackoverflow.com/questions/39627106/why-do-i-need-underscores-in-swift) in Swift. <br>
+Spent a considerable amount of time playing around with UI constraints to get a bit more familiar with them. <br>
+Added stack views to the UI. <br>
+Had to look up Swift for loops, dictionaries, casting, arrays, range operators...etc. <br>
+`4:15` Finally got relatively comfortable with queries and having my data formatted nicely in standard output. <br>
+After a lot more reorganizing, you can now make names appear in the table view by searching an attribute and a specific value, and pressing Generate. The key to this working was finding out about the reloadData() function for a TableView <br>
+Tomorrow will focus more on reorganizing the UI and layout so that user experience is more pleasant and info is fully accessible after search.
+
