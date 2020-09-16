@@ -42,4 +42,9 @@ Had to look up Swift for loops, dictionaries, casting, arrays, range operators..
 Tomorrow will focus more on reorganizing the UI and layout so that user experience is more pleasant and info is fully accessible after search. This'll probably involve breaking down the ViewController into smaller parts. <br>
 
 ### Sept 16, 2020
+`1:00 PM` Followed [a very good bunch of tutorials about UITableViews](https://www.youtube.com/watch?v=VFtsSEYDNRU&list=TLPQMTYwOTIwMjBQe6XonpM70A&index=1) to reorganize my code. <br>
+Learned about [Target-Action](https://learnappmaking.com/target-action-swift/), which is very much like signals and slots in Qt. <br>
+`5:30 PM` Cleaned up the table view code. I'm now much clearer and more organized on how to add functionality. However, I had to removed the API code for now, so I'll have to add this back in, and since I scrapped my previous UI, I need to think of a better way to get user input for searches. That will likely involve learning how to switch between two different views. <br>
 
+Here's a pic of what things currently look like(with some real fake names):<br>
+![sept16_prog](https://user-images.githubusercontent.com/16982565/93399862-02ffbb00-f844-11ea-9af8-912b934a48d8.png)
