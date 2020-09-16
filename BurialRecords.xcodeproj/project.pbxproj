@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		82662D3D25102F0A00B85B7C /* SODAKit in Frameworks */ = {isa = PBXBuildFile; productRef = 82662D3C25102F0A00B85B7C /* SODAKit */; };
+		82662D3F2512BB9B00B85B7C /* ExpandableNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82662D3E2512BB9B00B85B7C /* ExpandableNames.swift */; };
 		82953EA5250F0ACB007A3031 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82953EA4250F0ACB007A3031 /* AppDelegate.swift */; };
 		82953EA7250F0ACB007A3031 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82953EA6250F0ACB007A3031 /* ViewController.swift */; };
 		82953EAA250F0ACB007A3031 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82953EA8250F0ACB007A3031 /* Main.storyboard */; };
@@ -27,6 +28,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		82662D3E2512BB9B00B85B7C /* ExpandableNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandableNames.swift; sourceTree = "<group>"; };
 		82953EA1250F0ACB007A3031 /* BurialRecords.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BurialRecords.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		82953EA4250F0ACB007A3031 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		82953EA6250F0ACB007A3031 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -85,6 +87,7 @@
 				82953EAB250F0ACD007A3031 /* Assets.xcassets */,
 				82953EAD250F0ACD007A3031 /* LaunchScreen.storyboard */,
 				82953EB0250F0ACD007A3031 /* Info.plist */,
+				82662D3E2512BB9B00B85B7C /* ExpandableNames.swift */,
 			);
 			path = BurialRecords;
 			sourceTree = "<group>";
@@ -205,6 +208,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				82662D3F2512BB9B00B85B7C /* ExpandableNames.swift in Sources */,
 				82953EA7250F0ACB007A3031 /* ViewController.swift in Sources */,
 				82953EA5250F0ACB007A3031 /* AppDelegate.swift in Sources */,
 			);

@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "SODAKit",
+        "repositoryURL": "https://github.com/socrata/soda-swift",
+        "state": {
+          "branch": "master",
+          "revision": "f578510edf6c922ca4b4dfe87d29fd526b581129",
+          "version": null
+        }
+      }
+    ]
+  },
+  "version": 1
+}
