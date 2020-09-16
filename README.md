@@ -38,7 +38,7 @@ Spent a considerable amount of time playing around with UI constraints to get a 
 Added stack views to the UI. <br>
 Had to look up Swift for loops, dictionaries, casting, arrays, range operators...etc. <br>
 `4:15 PM` Finally got relatively comfortable with queries and having my data formatted nicely in standard output. <br>
-`11:30 PM` After supper/job/break/etc, did some reorganizing of the code. I learned that I have created what is reffered to as a Massive View Controller, but you can now make names appear in the table view by searching an attribute and a specific value, and pressing Generate. The key to this working was finding out about the reloadData() function for a TableView <br>
+`11:30 PM` After supper/jog/break/etc, did some reorganizing of the code. I learned that I have created what is reffered to as a Massive View Controller, but you can now make names appear in the table view by searching an attribute and a specific value, and pressing Generate. The key to this working was finding out about the reloadData() function for a TableView <br>
 Tomorrow will focus more on reorganizing the UI and layout so that user experience is more pleasant and info is fully accessible after search. This'll probably involve breaking down the ViewController into smaller parts. <br>
 
 ### Sept 16, 2020
