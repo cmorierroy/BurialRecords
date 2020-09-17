@@ -13,3 +13,14 @@ struct ExpandableNames
     var isExpanded: Bool
     let names:[String]
 }
+
+struct Record
+{
+    var last_name: String?
+    var first_name: String?
+    var burial_order: String?
+    var cemetary: String?
+    var section_lot_grave: String?
+    var date_of_death: String?
+    var date_of_burial: String?
+}
