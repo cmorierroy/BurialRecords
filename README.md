@@ -48,3 +48,11 @@ Learned about [Target-Action](https://learnappmaking.com/target-action-swift/), 
 
 Here's a pic of what things currently look like(with some real fake names):<br>
 ![sept16_prog](https://user-images.githubusercontent.com/16982565/93399862-02ffbb00-f844-11ea-9af8-912b934a48d8.png)
+
+### Sept 17, 2020
+`12:41 PM` Added the API data back, but there is clearly a problem concerning how to present it. <br>
+Currently I only have one view for the list of whatever the query returns. <br>
+I think I will copy the format that FireFox Focus uses. <br>
+That said, before I dive into having a search bar, I want to add a logo, splashscreen, and some original background music. <br>
+`5:00` I added the music. I'm going to try a lame logo, now.
+
