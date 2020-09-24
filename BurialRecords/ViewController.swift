@@ -91,10 +91,12 @@ class ViewController : UITableViewController
         navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
 
         //nav bar bg color
-        navigationController?.navigationBar.backgroundColor = .black
+        navigationController?.navigationBar.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1.0)
         
-        //navigationItem.searchController
+        //navigationController?.navigationBar.barTintColor = UIColor.black
+        //navigationController?.navigationBar.tintColor = UIColor.black
         
+        //UINavigationBar.appearance().backgroundColor = .black
         //register a cell for the table
         tableView.register(CustomCell.self, forCellReuseIdentifier: cellId)
         

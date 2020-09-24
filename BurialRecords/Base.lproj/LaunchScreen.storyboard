@@ -16,13 +16,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="noSequence-1" translatesAutoresizingMaskIntoConstraints="NO" id="4Nb-tA-eIz">
-                                <rect key="frame" x="87" y="384" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noSequence-1" translatesAutoresizingMaskIntoConstraints="NO" id="4Nb-tA-eIz">
+                                <rect key="frame" x="10" y="244" width="394" height="418"/>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="4Nb-tA-eIz" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="200" id="9Yw-KM-qE5"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="4Nb-tA-eIz" secondAttribute="bottom" constant="200" id="g87-4m-iaf"/>
+                            <constraint firstAttribute="trailing" secondItem="4Nb-tA-eIz" secondAttribute="trailing" constant="10" id="i3Q-Nh-i1v"/>
+                            <constraint firstItem="4Nb-tA-eIz" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="kfF-le-Ieb"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
