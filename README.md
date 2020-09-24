@@ -56,3 +56,8 @@ I think I will copy the format that FireFox Focus uses. <br>
 That said, before I dive into having a search bar, I want to add a logo, splashscreen, and some original background music. <br>
 `5:00` I added the music. I'm going to try a lame logo, now.
 
+### Sept 24, 2020
+Took a while to get there, but started using custom cells, I restyled the UI, added a search bar, added a splashscreen. Was feeling quite unmotivated to do much more with this project since the dataset is seemingly useless - I don't think it includes any data from private cemeteries. <br>
+However, with the progress I made, I think I could relatively easily shift to another dataset. Or I could just use this as an app to query datasets if I make it a bit smarter.<br>
+
+For future tasks, till some problems with the border-radius for cells, but now my priority is shifting to adding labels for the data fields and having a functional search bar that displays results (perhaps even as you type). The music thing was cool to play with but its purpose has expired. I'll have to move that piece of code to a new project for future use, because I don't want to re-research it next time I need to add audio.
