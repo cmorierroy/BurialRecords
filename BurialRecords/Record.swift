@@ -23,4 +23,5 @@ struct Record
     var section_lot_grave: String?
     var date_of_death: String?
     var date_of_burial: String?
+    var expanded: Bool = true
 }

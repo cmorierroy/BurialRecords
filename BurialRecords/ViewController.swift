@@ -12,6 +12,10 @@ import AVFoundation
 
 class ViewController : UITableViewController
 {
+
+    //Search bar
+    lazy var searchBar:UISearchBar = UISearchBar(frame: CGRect(x:0,y:0,width:200,height:20))
+    
     //BONUS Music
     var player: AVAudioPlayer?
     
@@ -20,38 +24,23 @@ class ViewController : UITableViewController
     
     var records = [Record]()
     let cellId = "cellId"
-    
-    var names = [ExpandableNames(isExpanded: true, names:["Jake", "Billy", "Merl", "Thogan", "Phester"]),
-                 ExpandableNames(isExpanded: true, names: ["Marthigwa", "Polsbart", "Tritocus", "Hevyens"]),
-                 ExpandableNames(isExpanded: true, names: ["Dollywopslogger","Drougherty"])
-                 ]
 
-    var showDetails = false
+    var playMusic = true
     
-    @objc func handleShowIndexPath()
+    @objc func handleMusic()
     {
-        navigationItem.rightBarButtonItem?.title = showDetails ? "Show Details" : "Hide Details"
-        showDetails = !showDetails
+        navigationItem.rightBarButtonItem?.title = playMusic ? "Play Music" : "Stop Music"
         
-        let animationStyle = showDetails ? UITableView.RowAnimation.left : .right
+        playMusic = !playMusic
         
-        for i in records.indices
+        if(playMusic)
         {
-            let indexPath = IndexPath(row: i, section: 0)
-            tableView.reloadRows(at: [indexPath], with: animationStyle)
+            player?.play()
         }
-        
-//        for i in names.indices
-//        {
-//            for j in names[i].names.indices
-//            {
-//                if names[i].isExpanded
-//                {
-//                    let indexPath = IndexPath(row: j, section: i)
-//                    tableView.reloadRows(at: [indexPath], with: animationStyle)
-//                }
-//            }
-//        }
+        else
+        {
+            player?.stop()
+        }
     }
     
     @objc func handleExpandClose(button: UIButton)
@@ -62,14 +51,14 @@ class ViewController : UITableViewController
         
         var indexPaths = [IndexPath]()
         
-        for row in names[section].names.indices
+        for row in records.indices
         {
             let indexPath = IndexPath(row: row, section: section)
             indexPaths.append(indexPath)
         }
         
-        let isExpanded = names[section].isExpanded
-        names[section].isExpanded = !isExpanded
+        let isExpanded = records[section].expanded
+        records[section].expanded = !isExpanded
         
         button.setTitle(isExpanded ? "Open" : "Close", for: .normal)
         
@@ -88,20 +77,30 @@ class ViewController : UITableViewController
         super.viewDidLoad()
         
         //add and style show details button
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Show Details", style: .plain, target: self, action: #selector(handleShowIndexPath))
-        navigationItem.rightBarButtonItem?.tintColor = .yellow
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Stop Music", style: .plain, target: self, action: #selector(handleMusic))
+        navigationItem.rightBarButtonItem?.tintColor = UIColor(red: 0xfa/255.0, green: 0xd7/255.0, blue: 0x49/255.0, alpha: 1.0)
+        
+        //search bar customization
+        searchBar.placeholder = "Search burial records..."
+        UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).defaultTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: searchBar)
         
         //add a title to the nav bar
         navigationItem.title = "Winnipeg Burials"
         navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
 
         //nav bar bg color
-        navigationController?.navigationBar.backgroundColor = .systemPurple
+        navigationController?.navigationBar.backgroundColor = .black
         
         //navigationItem.searchController
         
         //register a cell for the table
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellId)
+        tableView.register(CustomCell.self, forCellReuseIdentifier: cellId)
+        
+        //allow cells to resize given the view
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 200
         
         //get the api token from text file
         self.readAPIToken()
@@ -138,7 +137,7 @@ class ViewController : UITableViewController
                 //loop indefinitely
                 player.numberOfLoops = -1
                 
-                player.play()
+                //player.play()
             }
             catch
             {
@@ -248,7 +247,8 @@ class ViewController : UITableViewController
                     tempField = record["date_of_death"]
                     if(tempField != nil)
                     {
-                        tempRecord.date_of_death = String(describing: tempField!)
+                        let components = String(describing: tempField!).split(separator: "T")
+                        tempRecord.date_of_death = String(components[0])
                     }
                     else
                     {
@@ -258,7 +258,8 @@ class ViewController : UITableViewController
                     tempField = record["date_of_burial"]
                     if(tempField != nil)
                     {
-                        tempRecord.date_of_burial = String(describing: tempField!)
+                        let components = String(describing: tempField!).split(separator: "T")
+                        tempRecord.date_of_burial = String(components[0])
                     }
                     else
                     {
@@ -268,41 +269,6 @@ class ViewController : UITableViewController
                     //add record to array
                     self.records.append(tempRecord)
                 }
-                
-                //OUTPUT DATA
-                //                for rec in self.records
-                //                {
-                //                    if(rec.first_name != nil)
-                //                    {
-                //                        print("First Name: " + rec.first_name!)
-                //                    }
-                //                    if(rec.last_name != nil)
-                //                    {
-                //                        print("Last Name: " + rec.last_name!)
-                //                    }
-                //                    if(rec.burial_order != nil)
-                //                    {
-                //                        print("Burial Order: " + rec.burial_order!)
-                //                    }
-                //                    if(rec.cemetary != nil)
-                //                    {
-                //                        print("Burial Order: " + rec.cemetary!)
-                //                    }
-                //                    if(rec.section_lot_grave != nil)
-                //                    {
-                //                        print("Section-Lot-Grave: " + rec.section_lot_grave!)
-                //                    }
-                //                    if(rec.date_of_death != nil)
-                //                    {
-                //                        print("Date of death: " + rec.date_of_death!)
-                //                    }
-                //                    if(rec.date_of_burial != nil)
-                //                    {
-                //                        print("Date of burial: " + rec.date_of_burial!)
-                //                    }
-                //
-                //                    print()
-                //                }
                 
                 //now reload table data
                 self.tableView.reloadData()
@@ -314,22 +280,22 @@ class ViewController : UITableViewController
         }
     }
     
-    //make a header for sections
-    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView?
-    {
-        
-        let button = UIButton(type: .system)
-        button.setTitle("Close", for: .normal)
-        button.setTitleColor(.black, for: .normal)
-        button.backgroundColor = .yellow
-        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
-        
-        button.addTarget(self, action: #selector(handleExpandClose(button:)), for: .touchUpInside)
-        
-        button.tag = section
-        
-        return button
-    }
+    //make a header for sections (DO NOT CURRENTLY NEED A BUTTON THERE
+//    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView?
+//    {
+//
+//        let button = UIButton(type: .system)
+//        button.setTitle("Close", for: .normal)
+//        button.setTitleColor(.black, for: .normal)
+//        button.backgroundColor = .yellow
+//        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
+//
+//        button.addTarget(self, action: #selector(handleExpandClose(button:)), for: .touchUpInside)
+//
+//        button.tag = section
+//
+//        return button
+//    }
     
     //set header height
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -345,35 +311,29 @@ class ViewController : UITableViewController
     //set number of rows per section
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-//        if !names[section].isExpanded
-//        {
-//            return 0
-//        }
-//        return names[section].names.count
-        
         return records.count
     }
     
     //set cells
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
-                
-        let record = records[indexPath.row]
-        let name = record.first_name! + " " + record.last_name!
-        //toggle index paths on or off
-        if(showDetails)
-        {
-            cell.textLabel?.text = name + " | " + record.cemetary! + " | " + record.burial_order!
-            //cell.textLabel?.text = "\(name) | Section:\(indexPath.section) |  Row:\(indexPath.row)"
-        }
-        else
-        {
-            
-            cell.textLabel?.text = name
-            //cell.textLabel?.text = name
-        }
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! CustomCell
         
+        //get data associated with cell
+        let record = records[indexPath.row]
+        
+        //concatenate name
+        let name = record.first_name! + " " + record.last_name!
+
+        //assign info to cell
+        cell.name = name
+        cell.cemetary = record.cemetary!
+        cell.date_of_death = record.date_of_death!
+        cell.date_of_burial = record.date_of_burial!
+        cell.burial_order = record.burial_order!
+        cell.section_lot_grave = record.section_lot_grave!
+        
+        cell.layoutSubviews()
         return cell
     }
     
