@@ -8,8 +8,8 @@ Since Find a Grave is already an established website that crowdsources grave inf
 <br>
 
 Current ideas:<br>
-• Show data for first (exact) match of a full name. <br>
-• Show data (list) for all (exact) matches of last names.<br>
+• Show data for first (exact) match of a full name. (PROBLEMATIC) <br>
+• Show data (list) for all (exact) matches of last names. (DONE) <br>
 • Show amount of burials per cemetery for all time as a bar plot.<br>
 • Show amount of burials for a given cemetery per year as a line plot.<br>
 • Attempt to pinpoint specific grave locations within a cemetary and show them on a map. <br>
@@ -61,3 +61,6 @@ Took a while to get there, but started using custom cells, I restyled the UI, ad
 However, with the progress I made, I think I could relatively easily shift to another dataset. Or I could just use this as an app to query datasets if I make it a bit smarter.<br>
 
 For future tasks, till some problems with the border-radius for cells, but now my priority is shifting to adding labels for the data fields and having a functional search bar that displays results (perhaps even as you type). The music thing was cool to play with but its purpose has expired. I'll have to move that piece of code to a new project for future use, because I don't want to re-research it next time I need to add audio.
+
+### Sept 27, 2020
+Added a quick and buggy search function that sends a query every time the search bar text changes. I'm having a problem filtering the results by full name since I've formatted all first names to include middle names, and so if I try to split the search term by space to match the first element to first name and the second element to last name, this will only work properly for names without a middle name. So I need to reformat how I store the names. On my actual phone, the keyboard also does not go away when I am done typing. I have to add functionality to dismiss it once there is a tap outside of the keyboard or the go/search/return key is pressed. Right now I'm not going to deal with the fact that the app might query 90000+ results while the user is typing, and this can cause the app to crash since the UITableView might try to update while the amount of results are changing.
