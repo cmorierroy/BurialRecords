@@ -19,7 +19,7 @@ class ViewController : UITableViewController
     //BONUS Music
     var player: AVAudioPlayer?
     
-    let url = "https://data.winnipeg.ca/resource/iibp-28fx.json?last_name=Roy&first_name=Gerard"
+    //API url
     var APItoken = ""
     
     var records = [Record]()
@@ -43,6 +43,7 @@ class ViewController : UITableViewController
         }
     }
     
+    //CURRENTLY UNUSED
     @objc func handleExpandClose(button: UIButton)
     {
         print("Trying to expand.")
@@ -84,6 +85,7 @@ class ViewController : UITableViewController
         searchBar.placeholder = "Search burial records..."
         UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).defaultTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: searchBar)
+        searchBar.delegate = self
         
         //add a title to the nav bar
         navigationItem.title = "Winnipeg Burials"
@@ -93,10 +95,6 @@ class ViewController : UITableViewController
         //nav bar bg color
         navigationController?.navigationBar.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1.0)
         
-        //navigationController?.navigationBar.barTintColor = UIColor.black
-        //navigationController?.navigationBar.tintColor = UIColor.black
-        
-        //UINavigationBar.appearance().backgroundColor = .black
         //register a cell for the table
         tableView.register(CustomCell.self, forCellReuseIdentifier: cellId)
         
@@ -108,7 +106,16 @@ class ViewController : UITableViewController
         self.readAPIToken()
         
         //perform a query
-        filter(filter: "last_name = 'Roy'")
+        //filter(filter: "last_name = 'Roy'")
+        
+        playAudio(filename: "graveyardAppmusic.mp3")
+    }
+    
+    func playAudio(filename: String)
+    {
+        let splitUp = filename.split(separator: ".")
+        let prefix = String(splitUp[0])
+        let suffix = String(splitUp[1])
         
         //play music and make it loop
         if let player = player, player.isPlaying
@@ -118,7 +125,7 @@ class ViewController : UITableViewController
         else
         {
             //set up player and play
-            let urlString = Bundle.main.path(forResource: "graveyardAppmusic", ofType: "mp3")
+            let urlString = Bundle.main.path(forResource: prefix, ofType: suffix)
             do
             {
                 try AVAudioSession.sharedInstance().setMode(.default)
@@ -177,18 +184,26 @@ class ViewController : UITableViewController
         let client = SODAClient(domain: domain, token: self.APItoken)
         let data = client.query(dataset: dataset)
         
-        //        data.filterColumn ("last_name", "Roy")
-        //fuelLocations.filter("fuel_type_code = 'CNG'")
+        //split the searchTerm by spaces
+        let splitSearchTerm = filter.split(separator: " ")
+        
+        var searchQuery = ""
+        
+        if(splitSearchTerm.count == 1)
+        {
+            searchQuery = "(last_name = \'\(splitSearchTerm[0])\') OR (first_name = \'\(splitSearchTerm[0])\') OR (cemetary = \'\(splitSearchTerm[0]) Cemetery\')"
+        }
+        
+        //data.filterColumn ("last_name", "Roy")
         //data.filter("last_name = 'Roy'")
-        //data.limit(118640).get{ res in
-        data.filter(filter).get
+        data.limit(120000).filter(searchQuery).get
         { res in
             switch res
             {
             case .dataset (let data):
                 
                 //give a count of how many hits we got
-                //print(data.count)
+                print(data.count)
                 
                 //copy data to array of records
                 for record in data
@@ -282,24 +297,7 @@ class ViewController : UITableViewController
         }
     }
     
-    //make a header for sections (DO NOT CURRENTLY NEED A BUTTON THERE
-//    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView?
-//    {
-//
-//        let button = UIButton(type: .system)
-//        button.setTitle("Close", for: .normal)
-//        button.setTitleColor(.black, for: .normal)
-//        button.backgroundColor = .yellow
-//        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
-//
-//        button.addTarget(self, action: #selector(handleExpandClose(button:)), for: .touchUpInside)
-//
-//        button.tag = section
-//
-//        return button
-//    }
-    
-    //set header height
+    //set header height (CURRENTLY UNUSED)
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 36
     }
@@ -342,5 +340,14 @@ class ViewController : UITableViewController
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
         print("Tapped!")
+    }
+}
+
+extension ViewController : UISearchBarDelegate
+{
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String)
+    {
+        print(searchText)
+        filter(filter: searchText)
     }
 }
